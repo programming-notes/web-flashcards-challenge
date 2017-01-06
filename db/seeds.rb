@@ -12,10 +12,15 @@ end
 
 # Remove any cards from the database
 Card.delete_all
+
 User.delete_all
+
 Deck.delete_all
+
 Round.delete_all
+
 Guess.delete_all
+
 # Create 5 users
 
   user = User.create(name: fake_username)
@@ -24,13 +29,13 @@ Guess.delete_all
     :name         => fake_deckname,
     :total_cards  => 1,#Card.count.where(deck_id: d),
     :stats        => "some percentage",
-    :users_id      => user.id
+    :user_id      => user.id
   })
 
   round = Round.create(user_id: user.id, deck_id: deck.id)
 
   card = Card.create!({
-    :decks_id => deck.id,
+    :deck_id => deck.id,
     :questions => "this is the question?",
     :answers => "this is the answer."
   })
@@ -39,5 +44,5 @@ Guess.delete_all
     :first_time_count => fake_number,
     :total_guess => fake_number,
     :card_id => card.id,
-    :users_id => user.id
+    :user_id => user.id
   })

@@ -4,7 +4,7 @@ class CreateDecks < ActiveRecord::Migration
       t.string     :name, null: false
       t.integer    :total_cards, null:false
       t.string     :stats, null:false
-      t.references :users, null:false
+      t.references :user, null:false
 
       t.timestamps(null: false)
     end

@@ -3,8 +3,8 @@ class CreateGuesses < ActiveRecord::Migration
     create_table :guesses do |t|
       t.integer :first_time_count, index: true, null: false
       t.integer :total_guess, null: false
-      t.belongs_to :cards, index: true, null: false
-      t.belongs_to :users, index: true, null: false
+      t.belongs_to :card, index: true, null: false
+      t.belongs_to :user, index: true, null: false
 
       t.timestamps(null: false)
     end
