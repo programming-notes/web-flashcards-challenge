@@ -1,3 +1,3 @@
-class Guesses < ActiveRecord::Base
+class Guess < ActiveRecord::Base
   # Remember to create a migration!
 end
