@@ -23,7 +23,7 @@ Guess.delete_all
 
 # Create 5 users
 
-  user = User.create(name: fake_username)
+  user = User.create(full_name: fake_username, username: "abc", email:"111@111.com", password: 'password')
 
   deck = Deck.create!({
     :name         => fake_deckname,
