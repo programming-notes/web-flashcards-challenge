@@ -32,7 +32,7 @@ post '/user/login' do
 end
 
 get '/user/:id' do
-  # @user = User.find(params[:id]) #define instance variable for view
+  @user = User.find(params[:id]) #define instance variable for view
   erb :'user/show' #show single user view
 end
 
