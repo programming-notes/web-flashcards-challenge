@@ -21,7 +21,7 @@
   <div class="">
     <% if current_user %>
     <ul>
-      <li>Hello, <%= current_user.username %></li>
+      <li>Hello, <a href="/user/<%=current_user.id%>"><%= current_user.username %></a></li>
       <li><a href="/user/logout">Logout</a></li>
     </ul>
     <% else %>

@@ -3,5 +3,7 @@
 
   <p> hello world </p>
   <h3> Your sats for THIS-USER </h3>
+  <label for="">First Time Correct</label> <%= @user.guesses.count{x| x.first_time_count == true} %>
 
+  
 </div>
