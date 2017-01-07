@@ -1,4 +1,7 @@
 class Deck < ActiveRecord::Base
-  has_many :cards
-  has_many :rounds
+  validates :name, :total_cards, :stats, presence: true
+
+  has_many :rounds, class_name: "Round"
+  has_many :users, through: :rounds
+  has_many :cards, class_name: "Card"
 end

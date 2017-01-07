@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 
+  <!--
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
   -->
   <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
   <!--
     application.css is where you put your styles
   -->
@@ -15,9 +16,27 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>Flashcards</title>
 </head>
 <body>
-  <%= yield %>
+<div class="header">
+
+    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+        <a class="pure-menu-heading" href="/">Home</a>
+
+        <ul class="pure-menu-list">
+            <% if current_user %>
+            <li class="pure-menu-item pure-menu-selected"><a href="/" class="pure-menu-link">Home</a></li>
+            <li class="pure-menu-item"><a href="/user/logout" class="pure-menu-link">Log Out</a></li>
+            <% else %>
+            <li class="pure-menu-item"><a href="/user/login" class="pure-menu-link">Log In</a></li>
+            <li class="pure-menu-item"><a href="/user/new" class="pure-menu-link">Sign Up</a></li>
+        </ul>
+            <% end %>
+    </div>
+      <%= yield %>
+</div>
+
+
 </body>
 </html>
