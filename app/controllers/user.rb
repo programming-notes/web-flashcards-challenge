@@ -22,12 +22,12 @@ get '/user/login' do
 end
 
 post '/user/login' do
-  @user = User.find_by(email: params[:user][:email])
+  p @user = User.find_by(username: params[:user][:username])
   if @user && @user.authenticate(params[:user][:password])
     session[:user_id] = @user.id
-    redirect '/students'
+    redirect '/'
   else
-    erb :'users/login'
+    erb :'user/login'
   end
 end
 
