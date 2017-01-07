@@ -23,26 +23,36 @@ Guess.delete_all
 
 # Create 5 users
 
-  user = User.create(full_name: fake_username, username: "abc", email:"111@111.com", password: 'password')
+  user = User.create(
+    full_name: fake_username,
+    username: "abc",
+    email:    "111@111.com",
+    password: 'password'
+  )
 
   deck = Deck.create!({
     :name         => fake_deckname,
-    :total_cards  => 1,#Card.count.where(deck_id: d),
+    :total_cards  => 10,#Card.count.where(deck_id: d),
     :stats        => "some percentage",
     :user_id      => user.id
   })
 
-  round = Round.create(user_id: user.id, deck_id: deck.id)
+  round = Round.create(
+    user_id: user.id,
+    deck_id: deck.id
+  )
+
 
   card = Card.create!({
     :deck_id => deck.id,
-    :questions => "this is the question?",
-    :answers => "this is the answer."
+    :question => "this is the question?",
+    :answer => "this is the answer."
   })
+
 
   guess = Guess.create!({
     :first_time_count => fake_number,
-    :total_guess => fake_number,
+    :total_guesses => fake_number,
     :card_id => card.id,
     :user_id => user.id
   })

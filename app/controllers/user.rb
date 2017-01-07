@@ -17,6 +17,10 @@ post '/user' do
   end
 end
 
+get '/user/login' do
+  erb :'user/login'
+end
+
 post '/user/login' do
   @user = User.find_by(email: params[:user][:email])
   if @user && @user.authenticate(params[:user][:password])
