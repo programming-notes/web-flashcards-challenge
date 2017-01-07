@@ -1,3 +1,4 @@
+
 # Remove any cards from the database
 
 Card.delete_all
@@ -264,3 +265,4 @@ Guess.delete_all
       user_id: user.id,
       deck_id: deck1.id
     )
+

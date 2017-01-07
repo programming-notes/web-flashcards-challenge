@@ -4,5 +4,4 @@ class Deck < ActiveRecord::Base
   has_many :rounds, class_name: "Round"
   has_many :users, through: :rounds
   has_many :cards, class_name: "Card"
-
 end

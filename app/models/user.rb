@@ -13,5 +13,4 @@ class User < ActiveRecord::Base
   def self.get_answer
     User.find_by(username: @username).cards[@num_card].answer
   end
-
 end
