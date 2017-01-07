@@ -1,4 +1,5 @@
 class Deck < ActiveRecord::Base
   validates :name, :total_cards, :stats, presence: true
-  belongs_to :user
+  has_many :user, through: :deck_user, class_name: "User"
+
 end
