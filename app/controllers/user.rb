@@ -1,4 +1,3 @@
-
 get '/user/new' do
   erb :'user/new' #show new user view
 end
@@ -31,12 +30,13 @@ post '/user/login' do
   end
 end
 
+get '/user/logout' do
+  session.clear
+  redirect '/'
+end
+
 get '/user/:id' do
   @user = User.find(params[:id]) #define instance variable for view
   erb :'user/show' #show single user view
 end
 
-get '/user/logout' do
-  session.clear
-  redirect '/user/new'
-end

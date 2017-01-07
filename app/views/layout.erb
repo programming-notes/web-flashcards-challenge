@@ -7,6 +7,7 @@
     See: http://necolas.github.com/normalize.css/
   -->
   <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
   <!--
     application.css is where you put your styles
   -->
@@ -18,17 +19,24 @@
   <title>Flashcards</title>
 </head>
 <body>
-  <div class="">
-    <% if current_user %>
-    <ul>
-      <li>Hello, <a href="/user/<%=current_user.id%>"><%= current_user.username %></a></li>
-      <li><a href="/user/logout">Logout</a></li>
-    </ul>
-    <% else %>
-      <a href="/user/new">Create account</a> <br>
-      <a href="/user/login">Log in</a>
-    <% end %>
-  </div>
-  <%= yield %>
+<div class="header">
+
+    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+        <a class="pure-menu-heading" href="/">Home</a>
+
+        <ul class="pure-menu-list">
+            <% if current_user %>
+            <li class="pure-menu-item pure-menu-selected"><a href="/" class="pure-menu-link">Home</a></li>
+            <li class="pure-menu-item"><a href="/user/logout" class="pure-menu-link">Log Out</a></li>
+            <% else %>
+            <li class="pure-menu-item"><a href="/user/login" class="pure-menu-link">Log In</a></li>
+            <li class="pure-menu-item"><a href="/user/new" class="pure-menu-link">Sign Up</a></li>
+        </ul>
+            <% end %>
+    </div>
+      <%= yield %>
+</div>
+
+
 </body>
 </html>

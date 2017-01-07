@@ -48,11 +48,12 @@ article {
 </header>
 
 <nav>
+<% if current_user %>
   <ul>
-    <li><a href="#">Otters</a></li>
-    <li><a href="#">Racoons</a></li>
-    <li><a href="#">Nighthawks</a></li>
+    <li><a href="/deck">All Decks</a></li>
+
   </ul>
+<% end %>
 </nav>
 
 <article>
